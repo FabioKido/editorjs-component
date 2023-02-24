@@ -1,0 +1,23 @@
+{
+  "type": "component",
+  "metadata": {},
+  "schema": {
+    "name": "editor",
+    "friendlyName": "editor",
+    "description": "html editor component budibase",
+    "icon": "Text",
+    "settings": [
+      {
+        "type": "field/string",
+        "label": "Field",
+        "key": "field",
+        "required": true
+      },
+      {
+        "type": "text",
+        "key": "label",
+        "label": "Label"
+      }
+    ]
+  }
+}
