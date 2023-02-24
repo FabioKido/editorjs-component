@@ -12,7 +12,6 @@
 
   const editor = new EditorJS({
     holder: 'editorjs',
-    inlineToolbar: ['link', 'marker', 'bold', 'italic'],
     tools: {
       header: {
         class: Header,
@@ -31,13 +30,12 @@
 </script>
 
 <div use:styleable={$component.styles}>
-  <div id="editorjs" class=editor></div>
+  <div id="editorjs"></div>
   <button>Save Article</button>
 </div>
 
 <style>
-	.editor {
-    background-color: black;
-    color: white;
+	#editorjs {
+    background: white;
 	}
 </style>
