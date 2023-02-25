@@ -18,6 +18,24 @@
         "type": "text",
         "key": "label",
         "label": "Label"
+      },
+      {
+        "type": "select",
+        "label": "Background",
+        "key": "background",
+        "defaultValue": "#1C1E22",
+        "showInBar": true,
+        "barStyle": "picker",
+        "options": [
+          {
+            "label": "Darkest",
+            "value": "000000"
+          },
+          {
+            "label": "Midnight",
+            "value": "#1C1E22"
+          }
+        ]
       }
     ]
   }
