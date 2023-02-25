@@ -5,7 +5,8 @@
     "name": "editor",
     "friendlyName": "editor",
     "description": "html editor component budibase",
-    "icon": "Text",
+    "icon": "TextAlignLeft",
+    "styles": ["padding", "size"],
     "settings": [
       {
         "type": "field/string",

@@ -3,9 +3,10 @@
   import EditorJS from '@editorjs/editorjs'; 
   import Header from '@editorjs/header'; 
   import List from '@editorjs/list';
+  import Underline from '@editorjs/underline'
 
-  export let label;
   export let field;
+  export let label;
 
   let fieldApi
   let fieldState
@@ -34,10 +35,11 @@
 
   const editor = new EditorJS({
     holder: 'editorjs',
+    placeholder: 'Seu artigo aqui...',
     tools: {
       header: {
         class: Header,
-        inlineToolbar: ['marker', 'link'],
+        inlineToolbar: true,
         config: {
           placeholder: 'Header'
         },
@@ -46,15 +48,49 @@
       list: { 
         class: List, 
         inlineToolbar: true 
-      } 
+      },
+      undefine: {
+        class: Underline,
+        inlineToolbar: true
+      }
+    },
+    //data: {
+      // "time": 1677354256991,
+      // "blocks": [
+      //     {
+      //         "id": "2JVEkuKVN7",
+      //         "type": "paragraph",
+      //         "data": {
+      //             "text": "Bom dia senhores 🗿🍷"
+      //         }
+      //     },
+      //     {
+      //         "id": "1n9eZ9KHPT",
+      //         "type": "header",
+      //         "data": {
+      //             "text": "opkigdklkfg",
+      //             "level": 2
+      //         }
+      //     }
+      // ],
+      // "version": "2.26.5"
+      
+    //},
+    onReady: async () => {
+      if(fieldState.value){
+        await editor.blocks.renderFromHTML(fieldState.value);
+      }
     }
   });
 
-  // editor.save().then((outputData) => {
-  //     console.log('Article data: ', outputData)
-  //   }).catch((error) => {
-  //     console.log('Saving failed: ', error)
-  //   })
+  function onHandleChange() {
+    editor.save().then((outputData) => {
+      console.log('Article data: ', outputData)
+      fieldApi.setValue(outputData)
+    }).catch((error) => {
+      console.log('Saving failed: ', error)
+    })
+  }
 
   $: unsubscribe = formField?.subscribe((value) => {
     fieldState = value?.fieldState;
@@ -71,13 +107,6 @@
   {#if !formContext}
     <div class="placeholder">Form components need to be wrapped in a form.</div>
   {:else}
-    <!-- <NumberSpinner 
-      class={`spectrum-Textfield spectrum-Textfield-input spectrum-Heading--size${size || "M"}`}
-      mainStyle={`text-align: ${align}; height:auto;`}
-      value={fieldState?.value}
-      on:change={(ev) => fieldApi.setValue(ev.detail)}
-    /> -->
-
     <label
       class:hidden={!label}
       for={fieldState?.fieldId}
@@ -88,7 +117,7 @@
 
     <div class="spectrum-Form-itemField">
       <div id="editorjs"></div>
-      <!-- <button on:click={() => console.log('salvou...')}>Salvar</button> -->
+      <button on:click={() => onHandleChange()}>Salvar</button>
     </div>
   {/if}
 </div>
@@ -100,6 +129,8 @@
 
     border: 1px solid #494F5A;
     border-radius: 4px;
+
+    min-width: 670px;
 	}
 
   label {
