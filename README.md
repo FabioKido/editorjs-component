@@ -1,14 +1,15 @@
-# Editor
-This is a readme for your new Budibase plugin.
+# EditorJs - Component
+Rich Text component
 
 # Description
-Html editor component budibase
+HTML editor for budibase made with EditorJs
 
 Find out more about [Budibase](https://github.com/Budibase/budibase).
+Find out more about [EditorJs](https://editorjs.io/).
 
 ## Instructions
 
-To build your new  plugin run the following in your Budibase CLI:
+To build your new plugin run the following in your Budibase CLI:
 ```
 budi plugins --build
 ```
