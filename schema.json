@@ -2,14 +2,14 @@
   "type": "component",
   "metadata": {},
   "schema": {
-    "name": "editor",
-    "friendlyName": "editor",
+    "name": "editorjs",
+    "friendlyName": "editorjs",
     "description": "html editor component budibase",
     "icon": "TextAlignLeft",
     "styles": ["padding", "size"],
     "settings": [
       {
-        "type": "field/string",
+        "type": "field/longform",
         "label": "Field",
         "key": "field",
         "required": true
