@@ -5,7 +5,7 @@
   "license": "MIT",
   "svelte": "index.js",
   "module": "dist/plugin.min.js",
-  "author": "Yahav Rosner",
+  "author": "FabioKido",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -cw"
