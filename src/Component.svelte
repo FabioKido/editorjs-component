@@ -62,7 +62,7 @@
         class: List,
         inlineToolbar: true,
       },
-      undefine: {
+      underline: {
         class: Underline,
         inlineToolbar: true,
       },
